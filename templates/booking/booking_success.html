@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Booking Successful</h2>
+  <p>Your booking with {{ trainer.name }} has been successfully created!</p>
+  <p><a href="{% url 'trainer:trainer_detail' trainer.id %}">Go back to trainer details</a></p>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>{{ trainer.name }}</h2>
+  <p>Category: {{ trainer.category.name }}</p>
+  <p>{{ trainer.description }}</p>
+
+  {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'booking:book_trainer' trainer.id %}">
+      {% csrf_token %}
+      <label for="date">Booking Date:</label>
+      <input type="datetime-local" name="date" required>
+      <button type="submit">Book Now</button>
+    </form>
+  {% else %}
+    <p><a href="{% url 'users:login' %}">Login to book</a></p>
+  {% endif %}
+{% endblock %}

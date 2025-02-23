@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Book {{ trainer.name }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label for="date">Select booking date:</label>
+    <input type="datetime-local" name="date" required>
+    <button type="submit">Book</button>
+  </form>
+{% endblock %}

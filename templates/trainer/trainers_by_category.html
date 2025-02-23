@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Trainers in {{ category.name }}</h2>
+  <ul>
+    {% for trainer in trainers %}
+      <li>
+        <a href="{% url 'trainer:trainer_detail' trainer.id %}">{{ trainer.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+</body>
+</html>
